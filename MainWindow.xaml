@@ -1,0 +1,55 @@
+﻿<Window x:Class="Assignment1_Take2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment1_Take2"
+        mc:Ignorable="d"
+        Title="myMediaPlayer" Height="600" Width="600">
+
+    <Grid Margin="0,0,0,0">
+        <StackPanel x:Name="Media" Margin="0,0,0,63">
+            <DockPanel>
+                <Menu>
+                    <MenuItem Header="File">
+                        <MenuItem Header="Open MP3" Click="OpenFile_Click"></MenuItem>
+                        <MenuItem Header="Tag Current MP3" Click="Edit_Click"></MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="Media">
+                        <MenuItem Header="Play" Click="Play_Click"></MenuItem>
+                        <MenuItem Header="Pause" Click="Pause_Click"></MenuItem>
+                        <MenuItem Header="Stop" Click="Stop_Click"></MenuItem>
+                    </MenuItem>
+
+                </Menu>
+            </DockPanel>
+
+
+            <Image Width="300" Height="300" Margin="10" Name="ImgArt" />
+            <TextBlock x:Name="tagArtistBox" FontSize="32" Margin="10"></TextBlock>
+            <MediaElement x:Name="myMediaPlayer" LoadedBehavior="Manual" UnloadedBehavior="Manual"></MediaElement>
+            <TextBlock x:Name="tagTitleBox" FontSize="32" Margin="10"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="PlayButton" Content="Play" Height="30" Width="45" Margin="10"
+                    Click="Play_Click"/>
+                <Button x:Name="PauseButton" Content="Pause" Height="30" Width="45" Margin="10"
+                    Click="Pause_Click"/>
+                <Button x:Name="StopButton" Content="Stop" Height="30" Width="45" Margin="10"
+                    Click="Stop_Click"/>
+                <Button Content="Open MP3 File" Height="30" Margin="10"
+                Click="OpenFile_Click"></Button>
+                <Button x:Name="EditButton" Content="Edit Tag" Height="30" Margin="10"
+                Click="Edit_Click" IsEnabled="False"></Button>
+            </StackPanel>
+        </StackPanel>
+        <Grid x:Name="EditTag" Visibility="Hidden">
+            <Grid.ColumnSpan></Grid.ColumnSpan>
+            <TextBlock x:Name="TagEditor" />
+            <TextBox x:Name="Artist" IsReadOnly="False" />
+            <TextBox x:Name="Album" IsReadOnly="False"/>
+            <TextBox x:Name="Title" IsReadOnly="False"/>
+            <TextBox x:Name="Year" IsReadOnly="False"/>
+            <Button x:Name="SaveButton" Content="Save" Click="Save_Click"> </Button>
+        </Grid>
+    </Grid>
+</Window>
